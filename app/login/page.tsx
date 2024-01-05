@@ -7,11 +7,16 @@ import { useCallback, useState } from "react"
 
 import { MdOutlineKey } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc"
+import { MdOutlineDriveFileRenameOutline } from "react-icons/md"
 import { Button } from "@/components/ui/button"
 
 const Login = () =>{
     const [email,setEmail] = useState('');
+    const [name,setName] = useState('');
     const [password,setPassword] = useState('');
+    const [emailSignUp, setEmailSignUp] = useState('')
+    const [passwordSignUp,setPasswordSignUp] = useState('')
+    const [passwordConfirm, setPasswordConfirm] = useState('')
 
     const handleOnChange = () =>{
 
@@ -40,6 +45,7 @@ const Login = () =>{
                     </TabsList>
                     <TabsContent value="account" className="bg-neutral-100 rounded-md">
                         <div className="p-3">
+                            
                             <Input 
                                 type="text"
                                 placeholder="Email"
@@ -52,9 +58,9 @@ const Login = () =>{
                             <Input 
                                 type="password"
                                 placeholder="Password"
-                                value=""
+                                value={password}
                                 required={true}
-                                onChange={()=>{}}
+                                onChange={(e:any) =>setPassword(e.target.value)}
                                 icon ={MdOutlineKey}
                             />
                             <div className="flex items-center text-neutral-600 text-[12px] gap-2">
@@ -69,30 +75,39 @@ const Login = () =>{
                         
                     </TabsContent>
                     <TabsContent value="password">
-                    <div className="p-3">
+                    <div className="p-3 bg-neutral-100 rounded-md">
+                             <Input 
+                                    type="text"
+                                    placeholder="Name"
+                                    value={name}
+                                    required={true}
+                                    onChange={(e:any)=>setName(e.target.value)}
+                                    icon={MdOutlineDriveFileRenameOutline} 
+                            />
                             <Input 
                                 type="text"
                                 placeholder="Email"
-                                value=""
+                                value={emailSignUp}
                                 required={true}
-                                onChange={()=>{}}
+                                onChange={(e:any)=>setEmailSignUp(e.target.value)}
                                 icon={FcGoogle}
                                 
                             />
+                            
                             <Input 
                                 type="password"
                                 placeholder="Password"
-                                value=""
+                                value={passwordSignUp}
                                 required={true}
-                                onChange={()=>{}}
+                                onChange={(e:any)=>setPasswordSignUp(e.target.value)}
                                 icon ={MdOutlineKey}
                             />
                             <Input 
                                 type="password"
                                 placeholder="Confirm Password"
-                                value=""
+                                value={passwordConfirm}
                                 required={true}
-                                onChange={()=>{}}
+                                onChange={(e:any)=>setPasswordConfirm(e.target.value)}
                                 icon ={MdOutlineKey}
                             />
                             <div className="flex items-center text-neutral-600 text-[12px] gap-2">
