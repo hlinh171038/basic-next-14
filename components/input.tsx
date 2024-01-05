@@ -32,7 +32,7 @@ const Input = ({
                 value={value} 
                 onChange={onChange} 
                 required={required} 
-                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500 transition-all"
+                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm  placeholder:text-gray-500 transition-all focus:outline-blue-600  "
               />
             <Icon className="pointer-events-none absolute top-[30%] left-3 w-4 h-4 text-neutral-400 peer-focus:text-neutral-900"/>
         </div>
