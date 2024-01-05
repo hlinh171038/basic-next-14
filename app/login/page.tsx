@@ -2,11 +2,16 @@
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Input from "@/components/input"
-import { useCallback } from "react"
-import { KeyIcon } from "lucide-react"
+import { useCallback, useState } from "react"
+
+
+import { MdOutlineKey } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc"
+import { Button } from "@/components/ui/button"
 
 const Login = () =>{
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
 
     const handleOnChange = () =>{
 
@@ -27,14 +32,44 @@ const Login = () =>{
                     quality={100}
                 />
             </div>
-            <div className="w-full h-full flex justify-center">
+            <div className="w-full h-full flex justify-center items-center">
                 <Tabs defaultValue="account" className="w-[400px]">
-                    <TabsList>
-                        <TabsTrigger value="account">Sign In</TabsTrigger>
-                        <TabsTrigger value="password">Sign Up</TabsTrigger>
+                    <TabsList className="w-full ">
+                        <TabsTrigger value="account" className="w-full">Sign In</TabsTrigger>
+                        <TabsTrigger value="password" className="w-full">Sign Up</TabsTrigger>
                     </TabsList>
-                    <TabsContent value="account" className="bg-neutral-100">
-                        <div>
+                    <TabsContent value="account" className="bg-neutral-100 rounded-md">
+                        <div className="p-3">
+                            <Input 
+                                type="text"
+                                placeholder="Email"
+                                value={email}
+                                required={true}
+                                onChange={(e:any)=>setEmail(e.target.value)}
+                                icon={FcGoogle}
+                                
+                            />
+                            <Input 
+                                type="password"
+                                placeholder="Password"
+                                value=""
+                                required={true}
+                                onChange={()=>{}}
+                                icon ={MdOutlineKey}
+                            />
+                            <div className="flex items-center text-neutral-600 text-[12px] gap-2">
+                                <input type="checkbox" />
+                                <p>Remember me 30 day</p>
+                            </div>
+                            <Button variant="primary" className="w-full mt-3">Login</Button>
+                            <div className="w-full flex items-center justify-center mt-3">
+                                <p className="text-neutral-600 text-[12px]">Dont have account ? Registry now</p>
+                            </div>
+                        </div>
+                        
+                    </TabsContent>
+                    <TabsContent value="password">
+                    <div className="p-3">
                             <Input 
                                 type="text"
                                 placeholder="Email"
@@ -42,10 +77,34 @@ const Login = () =>{
                                 required={true}
                                 onChange={()=>{}}
                                 icon={FcGoogle}
+                                
                             />
+                            <Input 
+                                type="password"
+                                placeholder="Password"
+                                value=""
+                                required={true}
+                                onChange={()=>{}}
+                                icon ={MdOutlineKey}
+                            />
+                            <Input 
+                                type="password"
+                                placeholder="Confirm Password"
+                                value=""
+                                required={true}
+                                onChange={()=>{}}
+                                icon ={MdOutlineKey}
+                            />
+                            <div className="flex items-center text-neutral-600 text-[12px] gap-2">
+                                <input type="checkbox" />
+                                <p>Remember me 30 day</p>
+                            </div>
+                            <Button variant="primary" className="w-full mt-3">Sign Up</Button>
+                            <div className="w-full flex items-center justify-center mt-3">
+                                <p className="text-neutral-600 text-[12px]">You have account ? Login now</p>
+                            </div>
                         </div>
                     </TabsContent>
-                    <TabsContent value="password">Change your password here.</TabsContent>
                 </Tabs>
 
             </div>
